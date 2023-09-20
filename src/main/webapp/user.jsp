@@ -34,27 +34,37 @@
         .btn {
             width: 100px;
             height: 30px;
+			margin: 10px;
         }
 	</style>
 </head>
 
 <body>
-<form style="border: 1px solid black; width: 50%; height: 50%; border-radius: 5%; padding: 30px;">
+
+<form style="border: 1px solid black; width: 50%; height: 50%; border-radius: 5%; padding: 30px;", action="ControllerServlet", method="post">
 	<h2>User Information</h2>
 	<div class="row">
 		<label class="col1">Fullname: </label>
-		<label for="" class="col2">Ngoc Bich</label>
+		<label for="" class="col2" id="fullname">Ngoc Bich</label>
 	</div>
 	<div class="row">
 		<label class="col1">Email: </label>
-		<label for="" class="col2">abc@gmail.com</label>
+		<label for="" class="col2" id="email">abc@gmail.com</label>
 	</div>
 	<div class="row">
 		<label class="col1">Phone: </label>
-		<label for="" class="col2">0379 xxx xxx</label>
+		<label for="" class="col2" id="phone">0379 xxx xxx</label>
 	</div>
 	<br>
-	<input type="submit" value="Logout" class="btn">
+	<input type="submit" value="logout" class="btn" name="action">
+	<input type="submit" value="View As Admin" class="btn" name="action">
 </form>
+
+<script>
+    var obj = ${account};
+    document.getElementById("fullname").innerHTML = obj.full_name;
+    document.getElementById("email").innerHTML = obj.email;
+    document.getElementById("phone").innerHTML = obj.phone;
+</script>
 
 </body>

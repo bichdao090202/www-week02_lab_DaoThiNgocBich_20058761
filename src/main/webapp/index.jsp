@@ -5,13 +5,12 @@
 	<title>Week01</title>
 	<style>
         .row {
-            height: 30px;
+            height: 50px;
             display: flex;
             align-items: center;
         }
-
         .col1 {
-            min-width: 80px;
+            width: 80px;
         }
 
         .col2 {
@@ -23,18 +22,19 @@
 
 <body>
 <br />
-<form action="ControllerServlet", method="post">
+<form action="ControllerServlet", method="post", style="border: 1px solid black; width: 300px; height: 250px; border-radius: 5%; padding: 20px;">
+	<h1 align="center">Login</h1>
 	<div class="row">
-		<label class="col1">Username: </label>
-		<input type="text" name="Username" placeholder="Username" /><br><br>
+		<label class="col1">Email: </label>
+		<input type="text" name="email" placeholder="Username" value="met@gmail.com" /><br><br>
 	</div>
 	<div class="row">
 		<label class="col1">Password: </label>
-		<input type="password" name="Password" placeholder="Password" /><br><br>
+		<input type="password" name="password" placeholder="Password" value="123" /><br><br>
 	</div>
 	<div class="row">
-		<input type="submit" value="Login"/>
-		<input type="reset" value="Reset" />
+		<input type="submit" value="login" name = "action" style="margin: 80px"/>
+<%--		<input type="reset" value="Reset" />--%>
 	</div>
 </form>
 </body>

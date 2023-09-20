@@ -1,0 +1,15 @@
+
+INSERT INTO `account` (`account_id`, `full_name`, `password`, `email`, `phone`, `status`) VALUES
+('met', 'Tran Thi Met', '123', 'met@gmail.com', '0904567890', 1),
+('teo', 'Nguyen Van Teo', '123', 'teo@gmail.com', '0903123456', 1);
+
+INSERT INTO role (role_id ,`description`, role_name ,`status`) VALUE
+(1, 'admin', 'admin', 1),
+(2, 'user', 'user', 2);
+
+INSERT INTO grantaccess (account_id, is_grant, role_id, note) VALUE
+('met', 1, 1, "met is admin"),
+('met', 1, 2, "met is user"),
+('teo', 1, 2, "teo is user");
+
+UPDATE log SET notes = "hihi" WHERE id = 1;

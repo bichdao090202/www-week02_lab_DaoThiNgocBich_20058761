@@ -1,15 +1,13 @@
 package vn.edu.iuh.fit.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
 public class Log {
     @Id
+    @GeneratedValue
     private int id;
 
     @ManyToOne
@@ -23,6 +21,11 @@ public class Log {
     private String notes;
 
     public Log() {
+    }
+
+    public Log(Account account) {
+        this.account = account;
+        this.login_time = new Date();
     }
 
     public Log(int id, Account account, Date login_time, Date logout_time, String notes) {

@@ -1,11 +1,13 @@
 package vn.edu.iuh.fit.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
 public class Account {
     @Id
+    @GeneratedValue
     private String account_id;
     private String full_name;
     private String password;
@@ -19,13 +21,13 @@ public class Account {
     public Account() {
     }
 
-    public Account(String account_id, String full_name, String password, String email, String phone, int status) {
+    public Account(String account_id, String full_name, String password, String email, String phone) {
         this.account_id = account_id;
         this.full_name = full_name;
         this.password = password;
         this.email = email;
         this.phone = phone;
-        this.status = status;
+        this.status = 1;
     }
 
     public String getAccount_id() {

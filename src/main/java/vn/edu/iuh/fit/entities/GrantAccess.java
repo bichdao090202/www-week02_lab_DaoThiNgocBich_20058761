@@ -1,9 +1,6 @@
 package vn.edu.iuh.fit.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class GrantAccess {
@@ -24,10 +21,10 @@ public class GrantAccess {
     public GrantAccess() {
     }
 
-    public GrantAccess(Role role, Account account, int is_grant, String note) {
+    public GrantAccess(Role role, Account account,  String note) {
         this.role = role;
         this.account = account;
-        this.is_grant = is_grant;
+        this.is_grant = 1;
         this.note = note;
     }
 
