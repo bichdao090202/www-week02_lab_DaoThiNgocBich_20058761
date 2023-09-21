@@ -14,7 +14,8 @@ public class GrantAccess {
     @JoinColumn(name = "account_id")
     private Account account;
 
-    private int is_grant;
+    @Column(name = "is_grant", columnDefinition = "ENUM('1','0','1')")
+    private int isGrant;
 
     private String note;
 
@@ -24,7 +25,7 @@ public class GrantAccess {
     public GrantAccess(Role role, Account account,  String note) {
         this.role = role;
         this.account = account;
-        this.is_grant = 1;
+        this.isGrant = 1;
         this.note = note;
     }
 
@@ -44,12 +45,12 @@ public class GrantAccess {
         this.account = account;
     }
 
-    public int getIs_grant() {
-        return is_grant;
+    public int getIsGrant() {
+        return isGrant;
     }
 
-    public void setIs_grant(int is_grant) {
-        this.is_grant = is_grant;
+    public void setIsGrant(int is_grant) {
+        this.isGrant = is_grant;
     }
 
     public String getNote() {
@@ -65,7 +66,7 @@ public class GrantAccess {
         return "GrantAccess{" +
                 "role=" + role +
                 ", account=" + account +
-                ", is_grant=" + is_grant +
+                ", is_grant=" + isGrant +
                 ", note='" + note + '\'' +
                 '}';
     }

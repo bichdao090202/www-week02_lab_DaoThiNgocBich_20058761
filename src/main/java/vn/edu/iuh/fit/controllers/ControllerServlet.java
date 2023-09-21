@@ -93,8 +93,8 @@ public class ControllerServlet extends HttpServlet {
         if (account==null)
             return false;
         else{
-            Log log = new Log(account);
-            req.setAttribute("log_account", log.getAccount().getAccount_id());
+            Log log = new Log(account.getAccountID());
+            req.setAttribute("log_account", log.getAccountID());
             logRepository = new LogRepository();
             log_id = logRepository.addLog(log);
             return true;

@@ -1,38 +1,44 @@
 package vn.edu.iuh.fit.entities;
 
+import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 public class Log {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "BIGINT(20)")
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name="account_id")
-    private Account account;
+    @Column(name="account_id")
+    private String accountID;
 
-    private Date login_time;
+    @Column(name = "login_time", columnDefinition = "DATETIME")
+    @JsonbDateFormat (value = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime loginTime;
 
-    private Date logout_time;
+    @Column(name = "logout_time", columnDefinition = "DATETIME")
+    @JsonbDateFormat (value = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime logoutTime;
 
     private String notes;
 
     public Log() {
     }
 
-    public Log(Account account) {
-        this.account = account;
-        this.login_time = new Date();
+    public Log(String accountID) {
+        this.accountID = accountID;
+        this.loginTime = LocalDateTime.now();
     }
 
-    public Log(int id, Account account, Date login_time, Date logout_time, String notes) {
+    public Log(int id, String accountID, LocalDateTime loginTime, LocalDateTime logoutTime, String notes) {
         this.id = id;
-        this.account = account;
-        this.login_time = login_time;
-        this.logout_time = logout_time;
+        this.accountID = accountID;
+        this.loginTime = loginTime;
+        this.logoutTime = logoutTime;
         this.notes = notes;
     }
 
@@ -44,28 +50,28 @@ public class Log {
         this.id = id;
     }
 
-    public Account getAccount() {
-        return account;
+    public String getAccountID() {
+        return accountID;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setAccountID(String account) {
+        this.accountID = account;
     }
 
-    public Date getLogin_time() {
-        return login_time;
+    public LocalDateTime getLoginTime() {
+        return loginTime;
     }
 
-    public void setLogin_time(Date login_time) {
-        this.login_time = login_time;
+    public void setLoginTime(LocalDateTime login_time) {
+        this.loginTime = login_time;
     }
 
-    public Date getLogout_time() {
-        return logout_time;
+    public LocalDateTime getLogoutTime() {
+        return logoutTime;
     }
 
-    public void setLogout_time(Date logout_time) {
-        this.logout_time = logout_time;
+    public void setLogoutTime(LocalDateTime logout_time) {
+        this.logoutTime = logout_time;
     }
 
     public String getNotes() {
@@ -80,9 +86,9 @@ public class Log {
     public String toString() {
         return "Log{" +
                 "id=" + id +
-                ", account=" + account +
-                ", login_time=" + login_time +
-                ", logout_time=" + logout_time +
+                ", account=" + accountID +
+                ", login_time=" + loginTime +
+                ", logout_time=" + logoutTime +
                 ", notes='" + notes + '\'' +
                 '}';
     }

@@ -2,12 +2,12 @@ package vn.edu.iuh.fit.repositories;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import org.mariadb.jdbc.plugin.codec.LocalDateTimeCodec;
 import vn.edu.iuh.fit.ConnectionDB.ConnectionDB;
-import vn.edu.iuh.fit.entities.Account;
 import vn.edu.iuh.fit.entities.Log;
 
 import java.rmi.RemoteException;
-import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class LogRepository {
@@ -40,7 +40,7 @@ public class LogRepository {
 //                            .setParameter(1, new Date() ).setParameter(3,logId).setParameter(2,"hihi").executeUpdate();
             Log log = new Log();
             log = getLogByID(logId);
-            log.setLogout_time(new Date());
+            log.setLogoutTime(LocalDateTime.now());
             em.merge(log);
             tr.commit();
             return true;

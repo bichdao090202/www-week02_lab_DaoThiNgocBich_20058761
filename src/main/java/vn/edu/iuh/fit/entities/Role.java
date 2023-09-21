@@ -1,44 +1,47 @@
 package vn.edu.iuh.fit.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Role {
 @Id
-    private String role_id;
-    private String role_name;
+@Column(name = "role_id")
+    private String roleID;
+@Column(name = "role_name")
+    private String roleName;
 
     private String description;
 
+    @Column(columnDefinition = "TINYINT(4)")
     private int status;
 
     public Role() {
 
     }
 
-    public Role(String role_id, String role_name, String description, int status) {
-        this.role_id = role_id;
-        this.role_name = role_name;
+    public Role(String roleID, String roleName, String description, int status) {
+        this.roleID = roleID;
+        this.roleName = roleName;
         this.description = description;
         this.status = status;
     }
 
-    public String getRole_id() {
-        return role_id;
+    public String getRoleID() {
+        return roleID;
     }
 
-    public void setRole_id(String role_id) {
-        this.role_id = role_id;
+    public void setRoleID(String role_id) {
+        this.roleID = role_id;
     }
 
-    public String getRole_name() {
-        return role_name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRole_name(String role_name) {
-        this.role_name = role_name;
+    public void setRoleName(String role_name) {
+        this.roleName = role_name;
     }
 
     public String getDescription() {
@@ -60,8 +63,8 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "role_id='" + role_id + '\'' +
-                ", role_name='" + role_name + '\'' +
+                "role_id='" + roleID + '\'' +
+                ", role_name='" + roleName + '\'' +
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 '}';

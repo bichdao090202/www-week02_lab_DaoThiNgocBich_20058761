@@ -1,49 +1,51 @@
 package vn.edu.iuh.fit.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
 public class Account {
     @Id
-    @GeneratedValue
-    private String account_id;
-    private String full_name;
+    @Column(name = "account_id")
+    private String accountID;
+    @Column(name = "full_name")
+    private String fullName;
     private String password;
 
     private String email;
 
     private String phone;
 
+    @Column(columnDefinition = "TINYINT(4)")
     private int status;
 
     public Account() {
     }
 
-    public Account(String account_id, String full_name, String password, String email, String phone) {
-        this.account_id = account_id;
-        this.full_name = full_name;
+    public Account(String accountID, String fullName, String password, String email, String phone) {
+        this.accountID = accountID;
+        this.fullName = fullName;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.status = 1;
     }
 
-    public String getAccount_id() {
-        return account_id;
+    public String getAccountID() {
+        return accountID;
     }
 
-    public void setAccount_id(String account_id) {
-        this.account_id = account_id;
+    public void setAccountID(String account_id) {
+        this.accountID = account_id;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String full_name) {
+        this.fullName = full_name;
     }
 
     public String getPassword() {
@@ -81,8 +83,8 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "account_id='" + account_id + '\'' +
-                ", full_name='" + full_name + '\'' +
+                "account_id='" + accountID + '\'' +
+                ", full_name='" + fullName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
