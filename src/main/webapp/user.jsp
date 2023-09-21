@@ -62,7 +62,7 @@
 
 <script>
     var obj = ${account};
-    document.getElementById("fullname").innerHTML = obj.full_name;
+    document.getElementById("fullname").innerHTML = obj.fullName;
     document.getElementById("email").innerHTML = obj.email;
     document.getElementById("phone").innerHTML = obj.phone;
 </script>

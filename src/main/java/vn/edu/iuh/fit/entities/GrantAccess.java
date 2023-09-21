@@ -22,7 +22,7 @@ public class GrantAccess {
     public GrantAccess() {
     }
 
-    public GrantAccess(Role role, Account account,  String note) {
+    public GrantAccess(Role role, Account account, String note) {
         this.role = role;
         this.account = account;
         this.isGrant = 1;
@@ -63,11 +63,6 @@ public class GrantAccess {
 
     @Override
     public String toString() {
-        return "GrantAccess{" +
-                "role=" + role +
-                ", account=" + account +
-                ", is_grant=" + isGrant +
-                ", note='" + note + '\'' +
-                '}';
+        return "GrantAccess{" + "role=" + role + ", account=" + account + ", is_grant=" + isGrant + ", note='" + note + '\'' + '}';
     }
 }

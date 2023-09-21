@@ -4,7 +4,6 @@ import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 public class Log {
@@ -13,15 +12,15 @@ public class Log {
     @Column(columnDefinition = "BIGINT(20)")
     private int id;
 
-    @Column(name="account_id")
+    @Column(name = "account_id")
     private String accountID;
 
     @Column(name = "login_time", columnDefinition = "DATETIME")
-    @JsonbDateFormat (value = "yyyy-MM-dd HH:mm:ss")
+    @JsonbDateFormat(value = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime loginTime;
 
     @Column(name = "logout_time", columnDefinition = "DATETIME")
-    @JsonbDateFormat (value = "yyyy-MM-dd HH:mm:ss")
+    @JsonbDateFormat(value = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime logoutTime;
 
     private String notes;
@@ -84,12 +83,6 @@ public class Log {
 
     @Override
     public String toString() {
-        return "Log{" +
-                "id=" + id +
-                ", account=" + accountID +
-                ", login_time=" + loginTime +
-                ", logout_time=" + logoutTime +
-                ", notes='" + notes + '\'' +
-                '}';
+        return "Log{" + "id=" + id + ", account=" + accountID + ", login_time=" + loginTime + ", logout_time=" + logoutTime + ", notes='" + notes + '\'' + '}';
     }
 }

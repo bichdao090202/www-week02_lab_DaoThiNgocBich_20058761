@@ -12,16 +12,13 @@
 </head>
 <body>
 <h2>List Account</h2>
-<a href="viewDetail.jsp" id=1></a>
-<a href="viewDetail.jsp" id=2> </a>
-
 <p>${listAcc}</p>
 </body>
 <script>
 	<%--console.log(${listAcc})--%>
     var obj = ${listAcc};
     for (let i = 1; i < 3; i++){
-        document.getElementById(i).innerHTML = obj[i-1].full_name;
+        document.getElementById(i).innerHTML = obj[i-1].fullName;
 	}
 </script>
 </html>

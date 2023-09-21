@@ -6,10 +6,10 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Role {
-@Id
-@Column(name = "role_id")
+    @Id
+    @Column(name = "role_id")
     private String roleID;
-@Column(name = "role_name")
+    @Column(name = "role_name")
     private String roleName;
 
     private String description;
@@ -62,11 +62,6 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Role{" +
-                "role_id='" + roleID + '\'' +
-                ", role_name='" + roleName + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                '}';
+        return "Role{" + "role_id='" + roleID + '\'' + ", role_name='" + roleName + '\'' + ", description='" + description + '\'' + ", status=" + status + '}';
     }
 }
