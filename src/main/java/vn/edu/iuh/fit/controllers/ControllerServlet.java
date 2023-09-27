@@ -26,7 +26,7 @@ public class ControllerServlet extends HttpServlet {
     private LogServices logServices;
     private int log_id;
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
 
     }
@@ -37,27 +37,43 @@ public class ControllerServlet extends HttpServlet {
         String action = req.getParameter("action");
         this.req = req;
         this.resp = resp;
-        if (action.equals("login")) {
-            if (handleLogin()) req.getRequestDispatcher("/user.jsp").forward(req, resp);
-        } else if (action.equals("logout")) {
-            handleLogout();
-        } else if (action.equals("View As Admin")) {
-            handleViewAdmin();
-        }
+        switch (action){
+            case "login":
+                if (handleLogin()) req.getRequestDispatcher("/user.jsp").forward(req, resp);
+                break;
+            case "logout":
+                handleLogout();
+                break;
+            case "View As Admin":
+                handleViewAdmin();
+                break;
+            case "createAccount":
+                System.out.println("create");
+                break;
+            case "updateAccount":
+                System.out.println("update");
+                break;
+            case "deleteAccount":
+                System.out.println("delete");
+                String NOTI = "NOTICE";
+                req.setAttribute("thongbao", NOTI);
+                getServletContext().getRequestDispatcher("/admin.jsp").forward(req, resp);
+                break;
 
+        }
     }
 
-    private boolean handleLogin() throws JsonProcessingException, RemoteException {
-        String email = req.getParameter("email");
+    private boolean handleLogin() throws JsonProcessingException {
+        String accountID = req.getParameter("accountID");
         String password = req.getParameter("password");
         accountServices = new AccountServices();
-        Account account = accountServices.checkAccount(email, password);
-        String json = convertObjectToJson(account);
-        req.setAttribute("account", json);
+        Account account = accountServices.checkAccount(accountID, password);
         if (account == null) return false;
         else {
+            String json = convertObjectToJson(account);
+            req.setAttribute("account", json);
             Log log = new Log(account.getAccountID());
-            req.setAttribute("log_account", log.getAccountID());
+            req.setAttribute("log_id", log.getAccountID());
             logServices = new LogServices();
             log_id = logServices.insertLog(log);
             return true;

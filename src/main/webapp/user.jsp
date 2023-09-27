@@ -44,6 +44,10 @@
 <form style="border: 1px solid black; width: 50%; height: 50%; border-radius: 5%; padding: 30px;", action="ControllerServlet", method="post">
 	<h2>User Information</h2>
 	<div class="row">
+		<label class="col1">AccountID: </label>
+		<label for="" class="col2" id="id">Ngoc Bich</label>
+	</div>
+	<div class="row">
 		<label class="col1">Fullname: </label>
 		<label for="" class="col2" id="fullname">Ngoc Bich</label>
 	</div>
@@ -62,6 +66,7 @@
 
 <script>
     var obj = ${account};
+    document.getElementById("id").innerHTML = obj.accountID;
     document.getElementById("fullname").innerHTML = obj.fullName;
     document.getElementById("email").innerHTML = obj.email;
     document.getElementById("phone").innerHTML = obj.phone;

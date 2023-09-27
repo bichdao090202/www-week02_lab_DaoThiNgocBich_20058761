@@ -29,11 +29,11 @@ public class AccountRepository {
         return null;
     }
 
-    public Account checkAccount(String email, String password) {
+    public Account checkAccount(String accountID, String password) {
         try {
             trans.begin();
-            String sql = "select a from Account a where email = ?1 and password =?2";
-            Account account = em.createQuery(sql, Account.class).setParameter(1, email).setParameter(2, password).getSingleResult();
+            String sql = "select a from Account a where accountID = ?1 and password =?2";
+            Account account = em.createQuery(sql, Account.class).setParameter(1, accountID).setParameter(2, password).getSingleResult();
             trans.commit();
             return account;
         } catch (Exception ex) {

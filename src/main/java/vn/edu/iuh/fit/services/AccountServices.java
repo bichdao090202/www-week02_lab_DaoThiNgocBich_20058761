@@ -16,8 +16,8 @@ public class AccountServices {
         return repository.getAllAccountActive();
     }
 
-    public Account checkAccount(String email, String password) {
-        return repository.checkAccount(email, password);
+    public Account checkAccount(String accountID, String password) {
+        return repository.checkAccount(accountID, password);
     }
 
 }
